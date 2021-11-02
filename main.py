@@ -2,7 +2,7 @@ from Encryption import Encryption
 
 if __name__ == '__main__':
     while True:
-        prompt_encryption = input("Vil du kryptere eller dekryptere(krypter eller dekryptere): ")
+        prompt_encryption = input("Vil du kryptere eller dekryptere(krypter eller dekrypter): ")
         prompt_lowered = prompt_encryption.lower()
 
         if prompt_lowered == "krypter":
@@ -19,7 +19,7 @@ if __name__ == '__main__':
             else:
                 print("Du må oppgi et heltall!")
             break
-        elif prompt_lowered == "dekryptere":
+        elif prompt_lowered == "dekrypter":
             try:
                 key = int(input("Oppgi nøkkel: "))
             except ValueError:
