@@ -29,7 +29,7 @@ class Encryption:
         return Encryption.createKey(norwegian_ascii_letters_shuffeled, norwegian_ascii_letters)
 
     @staticmethod
-    def encrypt(message, key):
+    def encrypt(message, key, remove_missing=False):
         final_message = ""
         encryption_dict = Encryption.getEncryptionDict(key)
 
@@ -37,11 +37,14 @@ class Encryption:
             try:
                 final_message += encryption_dict[char]
             except KeyError:
-                final_message += char
+                if remove_missing:
+                    pass
+                else:
+                    final_message += char
         return final_message
 
     @staticmethod
-    def decrypt(message, key):
+    def decrypt(message, key, remove_missing=False):
         final_message = ""
         encryption_dict = Encryption.getDecryptionDict(key)
 
@@ -49,5 +52,8 @@ class Encryption:
             try:
                 final_message += encryption_dict[char]
             except KeyError:
-                final_message += char
+                if remove_missing:
+                    pass
+                else:
+                    final_message += char
         return final_message
