@@ -34,7 +34,10 @@ class Encryption:
         encryption_dict = Encryption.getEncryptionDict(key)
 
         for char in message:
-            final_message += encryption_dict[char]
+            try:
+                final_message += encryption_dict[char]
+            except KeyError:
+                final_message += char
         return final_message
 
     @staticmethod
@@ -43,5 +46,8 @@ class Encryption:
         encryption_dict = Encryption.getDecryptionDict(key)
 
         for char in message:
-            final_message += encryption_dict[char]
+            try:
+                final_message += encryption_dict[char]
+            except KeyError:
+                final_message += char
         return final_message
