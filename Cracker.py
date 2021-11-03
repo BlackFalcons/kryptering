@@ -6,7 +6,7 @@ class Cracker:
         self.message = message
         self.alphabet = alphabet
 
-    def getResult(self):
+    def bruteforce(self):
         print(self.message)
         print(self.alphabet)
         for key in range(29):
