@@ -15,15 +15,19 @@ class Encryption:
         return d
 
     @staticmethod
+    def getNorwegianAlphabet():
+        return ascii_lowercase + "æøå" + ascii_uppercase + "ÆØÅ"
+
+    @staticmethod
     def getEncryptionDict(key):
-        norwegian_ascii_letters = ascii_lowercase + "æøå" + ascii_uppercase + "ÆØÅ"
+        norwegian_ascii_letters = Encryption.getNorwegianAlphabet()
         norwegian_ascii_letters_shuffeled = Encryption.shuffle(ascii_lowercase + "æøå", key) + Encryption.shuffle(
             ascii_uppercase + "ÆØÅ", key)
         return Encryption.createKey(norwegian_ascii_letters, norwegian_ascii_letters_shuffeled)
 
     @staticmethod
     def getDecryptionDict(key):
-        norwegian_ascii_letters = ascii_lowercase + "æøå" + ascii_uppercase + "ÆØÅ"
+        norwegian_ascii_letters = Encryption.getNorwegianAlphabet()
         norwegian_ascii_letters_shuffeled = Encryption.shuffle(ascii_lowercase + "æøå", key) + Encryption.shuffle(
             ascii_uppercase + "ÆØÅ", key)
         return Encryption.createKey(norwegian_ascii_letters_shuffeled, norwegian_ascii_letters)
