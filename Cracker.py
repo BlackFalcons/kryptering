@@ -7,8 +7,6 @@ class Cracker:
         self.alphabet = alphabet
 
     def bruteforce(self):
-        print(self.message)
-        print(self.alphabet)
         for key in range(29):
-            print("Using key:" + str(1 + key - 1))
+            print("Using key:" + str(key))
             print(Encryption.decrypt(self.message, key))
